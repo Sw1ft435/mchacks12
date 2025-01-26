@@ -24,13 +24,11 @@ const isApiKeyValid = async (apiKey: string) => {
 
 // Function to get bot response based on the message
 const getBotResponse = async (message: string, apiKey: string) => {
-  // Check if the API key is valid
   const apiKeyValid = await isApiKeyValid(apiKey);
 
   if (!apiKeyValid) {
     return 'Invalid API key. Please check your API key and try again.';
   }
-
   try {
     // Call OpenAI API with the key
     const response = await axios.post(
